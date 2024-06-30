@@ -3,17 +3,17 @@ import java.util.Scanner;
 public class TradutorMorse {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        boolean play = true;
 
-        while (true) {
-            System.out.println("Digite o código: ");
+        do {
+            System.out.println("Digite aqui: ");
             String input = sc.nextLine().toLowerCase();
             String[] caracter = input.split(" ");
             char[] frases = new char[input.length()];
 
             char[] alfa = {
                     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-                    'u',
-                    'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+                    'u','v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
 
             String[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",
                     "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..",
@@ -48,6 +48,15 @@ public class TradutorMorse {
 
             }
             System.out.println("Tradução: " + traduzir);
-        }
+
+
+            System.out.println("Deseja sair? S/N");
+            char opcao = sc.next().charAt(0);
+            if(opcao=='S' || opcao=='s'){
+              play=false;
+            }
+            sc.nextLine();
+        }while (play);
+        System.out.println("Programa encerrado");
     }
 }
